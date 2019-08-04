@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+
+    <!--<record id="view_welcome_converttolead_mass" model="ir.ui.view">-->
+        <!--<field name="name">Confirm Sale Orders</field>-->
+        <!--<field name="model">welcome.card.converttolead.mass</field>-->
+        <!--<field name="arch" type="xml">-->
+            <!--<form string="Confirm Sale Orders">-->
+                <!--<footer>-->
+                    <!--<button name="mass_convert_welcome_card" string="Confirm" type="object" class="oe_highlight"/>-->
+                    <!--or-->
+                    <!--<button string="Cancel" class="oe_link" special="cancel" />-->
+                <!--</footer>-->
+            <!--</form>-->
+        <!--</field>-->
+    <!--</record>-->
+
+    <!--<record id="action_mass_convert_welcome_card" model="ir.actions.act_window">-->
+        <!--<field name="name">Convert To Lead</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">welcome.card.converttolead.mass</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">form</field>-->
+        <!--<field name="view_id" ref="view_welcome_converttolead_mass" />-->
+        <!--<field name="target">new</field>-->
+        <!--<field name="multi">True</field>-->
+    <!--</record>-->
+
+    <!--<record id="mass_convert_welcome_card" model="ir.values">-->
+        <!--<field name="model_id" ref="sale.model_sale_order" />-->
+        <!--<field name="name">Convert To Lead</field>-->
+        <!--<field name="key2">client_action_multi</field>-->
+        <!--<field name="value" eval="'ir.actions.act_window,' + str(ref('action_mass_convert_welcome_card'))"/>-->
+        <!--<field name="key">action</field>-->
+        <!--<field name="model">crm.lead</field>-->
+    <!--</record>-->
+
+    <!--<record id="action_crm_lead2opportunity_partner_inherit" model="ir.actions.act_window">-->
+        <!--<field name="name">Convert To Lead</field>-->
+        <!--<field name="type">ir.actions.act_window</field>-->
+        <!--<field name="res_model">crm.lead2opportunity.partner</field>-->
+        <!--<field name="view_type">form</field>-->
+        <!--<field name="view_mode">form</field>-->
+        <!--<field name="view_id" ref="view_crm_lead2opportunity_partner" />-->
+        <!--<field name="target">new</field>-->
+        <!--<field name="multi">True</field>-->
+        <!--<field name="model">crm.lead</field>-->
+    <!--</record>-->
+
+
+        <act_window name="Convert To Lead"
+            res_model="crm.lead2opportunity.partner"
+            src_model="crm.lead"
+            view_mode="form"
+            multi="True"
+            target="new"
+            key2="client_action_multi"
+            id="action_mass_convert_welcome_card"/>
+
+
+</openerp>
